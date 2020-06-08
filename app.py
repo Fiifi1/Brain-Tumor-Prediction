@@ -43,7 +43,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET','POST'])
 def upload():
     if request.method == 'POST':
         img_file = request.files['file']
