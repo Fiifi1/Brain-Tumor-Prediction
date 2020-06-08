@@ -6,10 +6,9 @@ import re
 import numpy as np
 
 import tensorflow as tf
-from tf.keras.preprocessing import image
-import numpy as np
-from tf.keras.models import load_model
-from tf.keras.applications.vgg16 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
+from tensorflow.keras.applications.vgg16 import preprocess_input
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
