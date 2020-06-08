@@ -1,5 +1,5 @@
-/models/data
-/uploads
-/screenshots
+models/data
+uploads
+screenshots
 *.idea
 *.vscode
