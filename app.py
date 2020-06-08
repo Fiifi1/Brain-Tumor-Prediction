@@ -5,11 +5,11 @@ import glob
 import re
 import numpy as np
 
-import tensorflow
-from tensorflow.keras.preprocessing import image
+import tensorflow as tf
+from tf.keras.preprocessing import image
 import numpy as np
-from tensorflow.keras.models import load_model
-from tensorflow.keras.applications.vgg16 import preprocess_input
+from tf.keras.models import load_model
+from tf.keras.applications.vgg16 import preprocess_input
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
@@ -26,7 +26,9 @@ model = load_model(model_weight)
 
 print('Model loaded. Check http://127.0.0.1:5000/')
 
-#Predict Function
+# Predict Function
+
+
 def model_prediction(img_path, model):
     img = image.load_img(img_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
@@ -36,9 +38,11 @@ def model_prediction(img_path, model):
 
     return pred
 
-@app.route("/", methods = ['GET'])
+
+@app.route("/", methods=['GET'])
 def index():
     return render_template('index.html')
+
 
 @app.route('/predict', methods=['GET', 'POST'])
 def upload():
@@ -50,7 +54,7 @@ def upload():
             base_path, 'uploads', secure_filename(img_file.filename))
         img_file.save(file_path)
 
-        #Prediction
+        # Prediction
         result = model_prediction(file_path, model)
 
         if result[0][0] == 1:
