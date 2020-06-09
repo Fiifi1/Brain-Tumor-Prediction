@@ -16,8 +16,9 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 #WEIGHTS = '/home/fiifi/Desktop/Lab/AI_Lab/AIDataset/brain-mri-dataset/brain_tumor_classifier/brain_tumor_predictor/models/classifier.h5'
-#model_weight = './models/classifier.h5'  #model_weight = '/models/classifier.h5' 
-model_weight = 'models/classifier.h5'
+cwd = os.getcwd()
+
+model_weight = cwd + '/models/classifier.h5'
 
 print(model_weight)
 
