@@ -20,7 +20,7 @@ cwd = os.getcwd()
 
 model_weight = cwd + '/models/classifier.h5'
 
-print(model_weight)
+#print(model_weight)
 
 model = load_model(model_weight)
 
